@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice.js</title>
+</head>
+<body>
+    <h1>Calculatrice .js</h1>
+    <form id="calc-form">
+        <input type="text" id="number1" name="number1" placeholder="Entrer first number" />
+        <input type="text" id="op" placeholder=" Entrer operator (+, -, *, /)" />
+        <input type="text" id="number2" name="number2" placeholder="Entrer second number" />
+       
+        <button type="button" id="calcul">Calculer</button>
+    </form>
+    <p result: id="result">Résultat : </p>
+
+    <script>
+        document.getElementById("calcul").addEventListener("click", function () {
+
+            let number1 = parseFloat(document.getElementById("number1").value);
+            let number2 = parseFloat(document.getElementById("number2").value);
+            let operateur = document.getElementById("op").value;
+
+            let result;
+            switch (operateur) {
+                case "+":
+                    result = number1 + number2;
+                    break;
+                case "-":
+                    result = number1 - number2;
+                    break;
+                case "*":
+                    result = number1 * number2;
+                    break;
+                case "/":
+                    result = number2 !== 0 ? number1 / number2 : "Division par zéro impossible";
+                    break;
+                default:
+                    result = "Opérateur invalide";
+            }
+            document.getElementById("result").innerText = "Résultat : " + result;
+        });
+    </script>
+</body>
+</html>
